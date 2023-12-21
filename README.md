@@ -20,3 +20,7 @@ Host someinternalhost
 7. Configure read-only permissions for key-file: ```chmod 0400 appuser```
 8. Execute ``` ssh appuser@someinternalhost```
 9. ...PROFIT!
+
+### Virtual machines addresses
+- bastion_IP: 51.250.87.149
+- someinternalhost_IP: 10.128.0.8
