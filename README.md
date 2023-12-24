@@ -1,8 +1,9 @@
 # imakk0_infra
 imakk0 Infra repository
 
-### Connect to someinternalhost
+### Connect to someinternalhost from bastion
 ##### Always actions need to configure on **bastion** host (VM with a public IP)
+
 1. Execute ```man ssh```
 2. ```ssh -A``` is the key for forwarding, but we can describe the same behavor via config file
 3. Add file ```echo > ~/.ssh/config```
@@ -22,6 +23,55 @@ Host someinternalhost
 9. ...PROFIT!
 
 ### Virtual machines addresses
-bastion_IP = 51.250.87.149
 
-someinternalhost_IP = 10.128.0.8
+bastion_IP: 51.250.87.149
+
+someinternalhost_IP: 10.128.0.8
+
+### Reddit testapp
+
+testapp_IP = 51.250.94.217
+
+testapp_port = 9292
+
+### Yandex Cloud CLI
+#### Create instance with post-install config-cloud scripts on OS Windows 11
+
+My exemple uses directives ```packages:``` and ```runcmd``` for exectute scripts
+
+1. CLI:
+```yc compute instance create --name imakk0-sandbox --hostname imakk0-sandbox --memory=4 --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 --metadata-from-file user-data=C:\Users\mkukolev\UnWork\imakk0_config.yml --metadata serial-port-enable=1```
+
+2. Must change path from ```--metadata-from-file user-data=C:\Users\mkukolev\UnWork\imakk0_config.yml```  to yor file path ```imakk0_config.yml``` to execution scenario
+3. File ```imakk0_config.yml``` is located at ```./``` of this repository
+4. After above steps, your cloud-config for VM be look like:
+```
+#cloud-config
+package_update: true
+packages:
+ - ruby-full
+ - ruby-bundler
+ - build-essential
+ - mongodb
+ - git
+runcmd:
+ - sudo systemctl start mongodb
+ - sudo systemctl enable mongodb
+ - sudo git clone -b monolith https://github.com/express42/reddit.git /home/yc-user/reddit
+ - sudo chmod 655 /home/yc-user/reddit/*
+ - cd /home/yc-user/reddit && bundle install
+ - puma -d
+
+datasource:
+ Ec2:
+  strict_id: false
+ssh_pwauth: no
+users:
+- name: yc-user
+  sudo: ALL=(ALL) NOPASSWD:ALL
+  shell: /bin/bash
+  ssh_authorized_keys: <rsa_authorized_keys>
+
+- ssh-rsa: <public_rsa_key>
+```
+5. After creating instance you need to wait 1-2 minutes for post-install scripts execution
