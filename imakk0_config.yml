@@ -1,0 +1,27 @@
+#cloud-config
+package_update: true
+packages:
+ - ruby-full
+ - ruby-bundler
+ - build-essential
+ - mongodb
+ - git
+runcmd:
+ - sudo systemctl start mongodb
+ - sudo systemctl enable mongodb
+ - sudo git clone -b monolith https://github.com/express42/reddit.git /home/yc-user/reddit
+ - cd /home/yc-user/reddit && bundle install
+ - puma -d
+
+datasource:
+ Ec2:
+  strict_id: false
+ssh_pwauth: no
+users:
+- name: yc-user
+  sudo: ALL=(ALL) NOPASSWD:ALL
+  shell: /bin/bash
+  ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDFMYwz+v6MuAZ4heQfo6gseur9wM7MCCTbwUOCV+38AspiCOiNgtzQ5femwlb87g49yQgJZK0PNDo2zk1FJXA/qxoAWhkNCZXQtIiREklM/AzSVZdOB8KChih+rF51x8tSR85l1JFSV6qb4aat/L/ksICeKkXNJ/QWDVFrr/OAajTcQo8bkxXCqOMVQqO7BSfovfrcMG+nVQDyNLqZRbVKdLAPhqn3GSGd4dInPqJW3vkvKWRo/XCxHO0yYHJceVHv4CGRJKxMi4kSB/XsthwJv0Ts/UjxEQHsveqiBUNxYkcD+EiO8I69n6mlFyZ+eKUcy4rE1KMfznX6Pc5nMkcZbtUOqjqjqYz9YIMDDVVctDIok5Q6ggT2Gu3ubUsw1+1wCbxFNdVqRxeXHnOJw/FN0A7FhVjhI0CPhhDKwaz1Bt46y4afgLScGp/twfsqDj6NlGpEp1lW1Ev5JYq0Yx8xqLHDkd1Mcn7cW1xn+96qMANGe0jBiSRPEdyZr+wI35c= yc-user@fhmdb1j5ij07ltjsi3i3
+
+- ssh-rsa: AAAAB3NzaC1yc2EAAAADAQABAAABgQDFMYwz+v6MuAZ4heQfo6gseur9wM7MCCTbwUOCV+38AspiCOiNgtzQ5femwlb87g49yQgJZK0PNDo2zk1FJXA/qxoAWhkNCZXQtIiREklM/AzSVZdOB8KChih+rF51x8tSR85l1JFSV6qb4aat/L/ksICeKkXNJ/QWDVFrr/OAajTcQo8bkxXCqOMVQqO7BSfovfrcMG+nVQDyNLqZRbVKdLAPhqn3GSGd4dInPqJW3vkvKWRo/XCxHO0yYHJceVHv4CGRJKxMi4kSB/XsthwJv0Ts/UjxEQHsveqiBUNxYkcD+EiO8I69n6mlFyZ+eKUcy4rE1KMfznX6Pc5nMkcZbtUOqjqjqYz9YIMDDVVctDIok5Q6ggT2Gu3ubUsw1+1wCbxFNdVqRxeXHnOJw/FN0A7FhVjhI0CPhhDKwaz1Bt46y4afgLScGp/twfsqDj6NlGpEp1lW1Ev5JYq0Yx8xqLHDkd1Mcn7cW1xn+96qMANGe0jBiSRPEdyZr+wI35c= yc-user@fhmdb1j5ij07ltjsi3i3
