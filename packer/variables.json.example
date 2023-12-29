@@ -1,13 +1,13 @@
 {
-	"type": "type-vm-platform",
-	"service_account_key_file": "user-service_account_key_file",
-	"folder_id": "user-folder_id",
-	"source_image_id": "user-source_image_id",
-	"source_image_family": "user-source_image_family",
-	"image_name": "user-image_name",
-	"image_family": "user-image_family",
-	"ssh_username": "user-ssh_username",
-	"platform_id": "user-platform_id",
-	"use_ipv4_nat": "boolean",
+	"type": "yandex",
+	"service_account_key_file": "service_account_key_file",
+	"folder_id": "folder_id",
+	"source_image_id": "source_image_id",
+	"source_image_family": "source_image_family",
+	"image_name": "image_name",
+	"image_family": "uimage_family",
+	"ssh_username": "ssh_username",
+	"platform_id": "platform_id",
+	"use_ipv4_nat": "true",
 	"subnet_id": "subnet_id"
 }
