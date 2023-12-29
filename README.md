@@ -75,3 +75,12 @@ users:
 - ssh-rsa: <public_rsa_key>
 ```
 5. After creating instance you need to wait 1-2 minutes for post-install scripts execution
+
+
+### Packer base
+ - Scripts [deploy.sh](https://github.com/Otus-DevOps-2023-11/imakk0_infra/blob/packer-base/config-scripts/deploy.sh), [install_mongodb.sh](https://github.com/Otus-DevOps-2023-11/imakk0_infra/blob/packer-base/config-scripts/install_mongodb.sh), [install_ruby.sh](https://github.com/Otus-DevOps-2023-11/imakk0_infra/blob/packer-base/config-scripts/install_ruby.sh) were moved to [config-scripts](https://github.com/Otus-DevOps-2023-11/imakk0_infra/tree/packer-base/config-scripts)
+ - Created template [immutable.json](https://github.com/Otus-DevOps-2023-11/imakk0_infra/blob/packer-base/packer/immutable.json) for creating image with a ```packer```
+ - Created ```.gitignore``` file, which ignoring actions for ```packer/variables.json```
+ - Created script [create-reddit-vm.sh](https://github.com/Otus-DevOps-2023-11/imakk0_infra/blob/packer-base/config-scripts/create-reddit-vm.sh) for creating instance VM in Yandex Cloud with use image
+ - Created [variables.json.examples](https://github.com/Otus-DevOps-2023-11/imakk0_infra/blob/packer-base/packer/files/variables.json.examples) for variables list.
+ - Created [imakk0-reddit.service](https://github.com/Otus-DevOps-2023-11/imakk0_infra/blob/packer-base/packer/files/imakk0-reddit.service) for systemd unit launch

@@ -1,0 +1,12 @@
+{
+	"service_account_key_file": "./service_account_key_file.example",
+	"folder_id": "folder_id",
+	"source_image_id": "source_image_id",
+	"source_image_family": "ubuntu-1604-lts",
+	"image_name": "image_name",
+	"image_family": "reddit-base",
+	"ssh_username": "ssh_username",
+	"platform_id": "platform_id",
+	"use_ipv4_nat": "true",
+	"subnet_id": "subnet_id"
+}
