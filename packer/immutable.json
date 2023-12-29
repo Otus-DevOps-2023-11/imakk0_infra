@@ -1,0 +1,48 @@
+{
+    "builders": [
+        {
+            "type": "yandex",
+            "service_account_key_file": "{{user `service_account_key_file`}}",
+            "folder_id": "{{user `folder_id`}}",
+			"source_image_id": "{{user `source_image_id`}}",
+            "source_image_family": "{{user `source_image_family`}}",
+            "image_name": "{{user `image_name`}}",
+            "image_family": "{{user `image_family`}}",
+            "ssh_username": "{{user `ssh_username`}}",
+            "platform_id": "{{user `platform_id`}}",
+			"use_ipv4_nat": true,
+			"subnet_id": "{{user `subnet_id`}}"
+        }
+    ],
+    "provisioners": [
+	    {
+			"type": "file",
+			"source": "files/imakk0-reddit.service",
+			"destination": "/var/tmp/imakk0-reddit.service"
+		},
+        {
+            "type": "shell",
+            "script": "./scripts/install_ruby.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+        {
+            "type": "shell",
+            "script": "./scripts/install_mongodb.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+		{
+            "type": "shell",
+            "script": "./scripts/deploy.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+		{
+			"type": "shell",
+			"inline": [
+				"sudo mv /var/tmp/imakk0-reddit.service /etc/systemd/system/imakk0-reddit.service",
+				"sudo systemctl start imakk0-reddit.service",
+				"sudo systemctl enable imakk0-reddit.service"
+			]
+    }
+
+    ]
+}
