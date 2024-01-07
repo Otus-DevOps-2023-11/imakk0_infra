@@ -32,7 +32,7 @@ resource "yandex_compute_instance" "app" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${file("~/.ssh/yc-user.pub")}"
+    ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }
 
   boot_disk {
