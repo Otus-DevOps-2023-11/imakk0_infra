@@ -84,3 +84,15 @@ users:
  - Created script [create-reddit-vm.sh](https://github.com/Otus-DevOps-2023-11/imakk0_infra/blob/packer-base/config-scripts/create-reddit-vm.sh) for creating instance VM in Yandex Cloud with use image
  - Created [variables.json.examples](https://github.com/Otus-DevOps-2023-11/imakk0_infra/blob/packer-base/packer/files/variables.json.examples) for variables list.
  - Created [imakk0-reddit.service](https://github.com/Otus-DevOps-2023-11/imakk0_infra/blob/packer-base/packer/files/imakk0-reddit.service) for systemd unit launch
+
+### Terraform-1
+
+#### Problem with multiple resource description with use 'resource' declaration
+Method of multiple declaration 'resource' is uncomfortable because wee will write very much code for each instance
+
+#### Description of my work
+- Added count.index for resource to workaround problem above
+- Added variable of count.index
+- Added outputs variable ip-addr for each instance via 'for-in' operator
+- Added terraform.tfvars.examples for example list of variables
+- Created lb.tf settings for load balancer
