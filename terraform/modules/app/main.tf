@@ -35,29 +35,24 @@ resource "yandex_compute_instance" "app" {
     }
   }
 
-#  network_interface {
-#    # Указан id подсети default-ru-central1-a
-#    subnet_id = var.subnet_id
-#    nat       = true
-#  }
-
   network_interface {
     subnet_id = var.subnet_id
     nat = true
   }
 
   provisioner "file" {
-    source      = "files/puma.service"
+    source      = "../modules/app/files/puma.service"
     destination = "/tmp/puma.service"
   }
 
   provisioner "remote-exec" {
-    script = "files/deploy.sh"
+    script = "../modules/app/files/deploy.sh"
   }
 
-#  provisioner "remote-exec" {
-#    inline = ["sleep 60"]
-#  }
-
+  provisioner "remote-exec" {
+    inline = [
+      "sleep 30"
+    ]
+  }
 
 }

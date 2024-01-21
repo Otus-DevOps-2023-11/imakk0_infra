@@ -5,24 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="382c360a-8671-4cdc-b0ae-ad08dfdbaff2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/packer/app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packer/db.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/modules/app/files/deploy.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/modules/app/files/puma.service" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/modules/app/main.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/modules/app/outputs.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/modules/app/variables.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/modules/db/main.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/modules/db/outputs.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/modules/db/variables.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/prod/main.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/prod/outputs.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/prod/storage-bucket.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/prod/terraform.tfvars.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/prod/variables.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/stage/main.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/stage/outputs.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/stage/storage-bucket.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/stage/terraform.tfvars.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/stage/variables.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/storage-bucket.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packer/scripts/install_ruby.sh" beforeDir="false" afterPath="$PROJECT_DIR$/packer/scripts/install_ruby.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/.terraform.lock.hcl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/files/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/files/deploy.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/lb.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/files/lb.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/terraform/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/main.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/outputs.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/outputs.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/variables.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/modules/app/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/modules/app/main.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/modules/db/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/modules/db/variables.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,15 +49,16 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "terraform-2",
-    "last_opened_file_path": "C:/Users/mkukolev/UnWork/imakk0_infra/terraform/modules/app"
+    "last_opened_file_path": "C:/Users/mkukolev/UnWork/imakk0_infra/terraform"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mkukolev\UnWork\imakk0_infra\terraform" />
+      <recent name="C:\Users\mkukolev\UnWork\imakk0_infra\terraform\prod" />
+      <recent name="C:\Users\mkukolev\UnWork\imakk0_infra\terraform\stage" />
       <recent name="C:\Users\mkukolev\UnWork\imakk0_infra\terraform\modules\app" />
       <recent name="C:\Users\mkukolev\UnWork\imakk0_infra\packer" />
-      <recent name="C:\Users\mkukolev\UnWork\imakk0_infra\packer\scripts" />
-      <recent name="C:\Users\mkukolev\UnWork\imakk0_infra\.github\workflows" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\mkukolev\UnWork\imakk0_infra\config-scripts" />

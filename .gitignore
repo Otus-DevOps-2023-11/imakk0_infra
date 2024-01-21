@@ -1,7 +1,7 @@
 packer/variables_*
+.idea/*
 *.tfstate
 *.tfstate.*.backup
 *.tfstate.backup
 *.tfvars
 .terraform/
-g

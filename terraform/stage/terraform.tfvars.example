@@ -1,0 +1,8 @@
+token                    = "rfdegdfgfd"
+image_id                 = "image_id"
+cloud_id                 = "cloud_id"
+folder_id                = "folder_id"
+zone                     = "zone"
+public_key_path          = "public_key_path"
+subnet_id                = "subnet_id"
+service_account_key_file = "service_account_key_file"

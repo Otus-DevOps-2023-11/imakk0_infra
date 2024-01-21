@@ -17,11 +17,11 @@ variable "private_key_path" {
   default     = "~/.ssh/yc-user"
 }
 
-variable "app_numbers" {
-  type        = string
-  description = "Numbers of each apps"
-  default     = 1
-}
+#variable "app_numbers" {
+#  type        = string
+#  description = "Numbers of each apps"
+#  default     = 1
+#}
 
 variable db_disk_image {
 description = "Disk image for reddit db"
