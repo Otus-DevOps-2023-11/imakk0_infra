@@ -96,3 +96,12 @@ Method of multiple declaration 'resource' is uncomfortable because wee will writ
 - Added outputs variable ip-addr for each instance via 'for-in' operator
 - Added terraform.tfvars.examples for example list of variables
 - Created lb.tf settings for load balancer
+
+### Terraform-2
+
+ Two images for the packer were created: [app.json](packer/app.json), [db.json](packer/db.json).
+- Previous module splitting project: [vpc](terraform/modules/vpc/main.tf), [app](terraform/modules/app/main.tf)
+  , [db](terraform/modules/db/main.tf)
+- Stage and product directories with the described infrastructure have been created, files from ./terraform have been removed.
+- Configured remote backend, created in file [storage-bucket.tf](terraform/storage-bucket.tf) and tested.
+- Added providers to modules for application deployment, data is displayed in the modules directory.
