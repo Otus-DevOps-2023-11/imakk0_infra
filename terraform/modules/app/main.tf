@@ -4,18 +4,12 @@
 #      source = "yandex-cloud/yandex"
 #    }
 #  }
-#  required_version = ">= 0.13"
 #}
-provider "yandex" {
-  token     = var.token
-  cloud_id  = var.cloud_id
-  folder_id = var.folder_id
-  zone      = var.zone
-}
 
 resource "yandex_compute_instance" "app" {
-  name  = "reddit-app-${count.index}"
-  count = var.app_numbers
+  #name  = "reddit-app-${count.index}"
+  name  = "reddit-app-imakk0"
+  #count = var.app_numbers
 
   connection {
     type        = "ssh"
@@ -37,24 +31,28 @@ resource "yandex_compute_instance" "app" {
 
   boot_disk {
     initialize_params {
-      image_id = var.image_id
+      image_id = var.app_disk_image
     }
   }
 
   network_interface {
-    # Указан id подсети default-ru-central1-a
     subnet_id = var.subnet_id
-    nat       = true
+    nat = true
   }
 
   provisioner "file" {
-    source      = "files/puma.service"
+    source      = "../modules/app/files/puma.service"
     destination = "/tmp/puma.service"
   }
 
   provisioner "remote-exec" {
-    script = "files/deploy.sh"
+    script = "../modules/app/files/deploy.sh"
   }
 
+  provisioner "remote-exec" {
+    inline = [
+      "sleep 30"
+    ]
+  }
 
 }
